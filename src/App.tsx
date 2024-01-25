@@ -1,12 +1,14 @@
-import React from "react";
-import logo from "./logo.svg";
+import Footer from "./components/Footer";
 import "./App.css";
+import Header from "./components/Header";
+import Home from "./components/Home";
 
 function App() {
   return <div className="text-center">
-    <h1>Quicky TS</h1>
-    <p> A React-ts future project to practice TypeScript and supporting CSS with Tailwind.</p>
-  </div>;
+    <Header/>
+    <Home/>
+    <Footer/>
+  </div>
 }
 
 export default App;
