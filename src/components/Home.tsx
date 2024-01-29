@@ -2,6 +2,7 @@
 // import { useCounterScore } from "../store/counterScore";
 
 import ClicksPerSecond from "./ClicksPerSecond"
+import Timer from "./Timer"
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
       <h1 className="bg-secondary">Counter: {count}</h1>
       <div onClick={() => {increment(1)}}className="w-16 h-16 bg-accent rounded-full"></div> */}
       <ClicksPerSecond/>
+      <Timer/>
     </div>
   );
 };

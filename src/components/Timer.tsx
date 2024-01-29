@@ -1,11 +1,17 @@
-import { useTimer } from "../store/timer"
+import React from 'react';
+import { useTimer } from "../store/timer";
 
 const Timer = () => {
+  const {time, startTime} = useTimer();
 
-const timer = useTimer( state => state.timer)
+  
+
   return (
-    <div>Timer: {timer}</div>
-  )
-}
+    <div>
+      <h1>Timer: {time}</h1>
+      <button className="bg-tertiary" onClick={() =>  startTime(Date.now())}>Start</button>
+    </div>
+  );
+};
 
-export default Timer
+export default Timer;
