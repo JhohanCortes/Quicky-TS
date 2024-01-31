@@ -5,16 +5,16 @@ const ClicksPerSecond = () => {
   const { time, startTime } = useTimer();
 
   let content 
-  if (time === 10) {
+  if (time === -1) {
     console.log(time)
-    content = <div className="bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md" onClick={() => startTime(Date.now())}>Start</div>
+    content = <div className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md" style={{ userSelect: 'none' }} onClick={() => startTime()}>Start</div>
   } else if (time === 0) {
     console.log(time)
     
-    content = <div className="bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md" onClick={() => startTime(Date.now())}> Try again!</div>
+    content = <div className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md" style={{ userSelect: 'none' }} onClick={() => startTime()}> Try again!</div>
   } else {
     console.log(time)
-    content = <div className="bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md" > {time}</div>
+    content = <div className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md" style={{ userSelect: 'none' }} > {time}</div>
   }
 
   return (
