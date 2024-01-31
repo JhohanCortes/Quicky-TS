@@ -6,7 +6,7 @@ interface TimerState {
 }
 
 export const useTimer = create<TimerState>((set) => ({
-  time: 2,
+  time: 10,
   startTime: (value: number) => {
     const intervalId = setInterval(() => {
       set((state) => ({
