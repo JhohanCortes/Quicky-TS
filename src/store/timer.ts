@@ -13,7 +13,7 @@ export const useTimer = create<TimerState>((set) => {
     time: -1,
     startTime: () => {
       // Restablecer el valor de 'time' a 10 antes de iniciar el intervalo
-      set({ time: 10 });
+      set({ time: 2 });
 
       intervalId = setInterval(() => {
         set((state) => {
