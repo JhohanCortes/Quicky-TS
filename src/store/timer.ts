@@ -2,6 +2,7 @@ import create from 'zustand';
 
 interface TimerState {
   time: number;
+  initialTime: number;
   startTime: () => void;
   stopTime: () => void;
 }
@@ -11,9 +12,10 @@ export const useTimer = create<TimerState>((set) => {
 
   return {
     time: -1,
+    initialTime: 10,
     startTime: () => {
       // Restablecer el valor de 'time' a 10 antes de iniciar el intervalo
-      set({ time: 2 });
+      set({ time: 13 });
 
       intervalId = setInterval(() => {
         set((state) => {

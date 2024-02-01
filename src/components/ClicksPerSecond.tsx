@@ -3,36 +3,35 @@ import { useTimer } from "../store/timer";
 
 const ClicksPerSecond = () => {
 
-  const { time, startTime } = useTimer();
+  const { time, initialTime, startTime } = useTimer();
   const [clicks, setClicks] = useState<number>(0)
+  
+  let content 
+  let score:number = 0
+  
+  score = clicks / initialTime
   
   const handleClick = () => {
     setClicks(clicks + 1)
   }
 
-  let content 
-  let score:number = 0
-
-
   if (time === -1) {
-    content = <div className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md" style={{ userSelect: 'none' }} onClick={() => startTime()}>Start</div>
+    content = <div className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md mt-14 mb-14" style={{ userSelect: 'none' }} onClick={() => startTime()}>Start</div>
   } else if (time === 0) {
 
-    score = clicks/time
-    console.log(time)
+    content = <div><div className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md mt-14 mb-14" style={{ userSelect: 'none' }} > Clicks per second : {score}</div>
+      <button className="bg-primary hover:bg-secondary text-white py-2 px-4 rounded mb-14" onClick={() => startTime()} > Try again!</button>
+    </div>
     
-    content = <div>
-                <div className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md" style={{ userSelect: 'none' }} onClick={() => startTime()}> Try again!</div>
-                <p>Clicks per second : {score}</p>
-              </div>
+  } else if (time <= 10){
+    content = <div className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md mt-14 mb-14" style={{ userSelect: 'none' }} onClick={() => {handleClick()}}>{time}</div>
+  }else {
+    content = <div className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md mt-14 mb-14" style={{ userSelect: 'none' }}>Ready: {time - 10}</div>
     
-  } else {
-    content = <div className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md" style={{ userSelect: 'none' }} onClick={() => {handleClick()}}>{time}</div>
   }
 
   return (
-    <div className="text-center mt-8">
-      <p className="text-lg font-bold mb-4">{clicks}</p>
+    <div className="text-center mt-14">
       {content}
     </div>
   );
