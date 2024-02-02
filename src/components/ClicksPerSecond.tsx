@@ -1,15 +1,20 @@
 import { useState } from "react";
 import { useTimer } from "../store/timer";
+import { useRankings } from "../store/rankings";
 
 const ClicksPerSecond = () => {
 
   const { time, initialTime, startTime } = useTimer();
+  const {addScore, ranking} = useRankings()
+
   const [clicks, setClicks] = useState<number>(0)
+  const [score, setScore] = useState<number>(0)
   
   let content 
-  let score:number = 0
   
-  score = clicks / initialTime
+  const handleScore = () => {
+    setScore(clicks / initialTime);
+  }
   
   const handleClick = () => {
     setClicks(clicks + 1)
@@ -18,7 +23,7 @@ const ClicksPerSecond = () => {
   if (time === -1) {
     content = <div className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md mt-14 mb-14" style={{ userSelect: 'none' }} onClick={() => startTime()}>Start</div>
   } else if (time === 0) {
-
+    handleScore()
     content = <div><div className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-96 h-56 mx-auto rounded-lg shadow-md mt-14 mb-14" style={{ userSelect: 'none' }} > Clicks per second : {score}</div>
       <button className="bg-primary hover:bg-secondary text-white py-2 px-4 rounded mb-14" onClick={() => startTime()} > Try again!</button>
     </div>

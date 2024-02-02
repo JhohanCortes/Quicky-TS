@@ -1,8 +1,11 @@
+// import { useRankings } from "../store/rankings"
 const Scoreboard = () => {
+  // const {ranking} = useRankings()
+
   return (
     <div><div className="text-center">
-    <h1>Quicky TS</h1>
-    <p> A React-ts future project to practice TypeScript and supporting CSS with Tailwind.</p>
+      
+      {/* <h1>{ranking[0]}</h1> */}
   </div>;</div>
   )
 }
