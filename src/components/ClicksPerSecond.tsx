@@ -9,10 +9,6 @@ const ClicksPerSecond = () => {
   const [clicks, setClicks] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
 
-  const handleScore = () => {
-    setScore(clicks / initialTime);
-  };
-
   const handleClick = () => {
     setClicks(clicks + 1);
   };
@@ -21,15 +17,18 @@ const ClicksPerSecond = () => {
 
   useEffect(() => {
     if (time === 0) {
-      handleScore();
-      addScore(score);
+      const calculatedScore = clicks / initialTime;
+      setScore(calculatedScore);
+      addScore(calculatedScore);
+      setClicks(0);
       console.log(ranking);
+      console.log(calculatedScore);
     }
-  }, [time]);
+  }, [time, addScore]);
+  
 
   const startTimeHandler = () => {
     startTime();
-    setScore(0);
   };
 
   if (time === -1) {
@@ -54,7 +53,7 @@ const ClicksPerSecond = () => {
         </div>
         <button
           className="bg-primary hover:bg-secondary text-white py-2 px-4 rounded mb-14"
-          onClick={startTimeHandlergi}
+          onClick={startTimeHandler}
         >
           {" "}
           Try again!
@@ -84,7 +83,10 @@ const ClicksPerSecond = () => {
     );
   }
 
-  return <div className="text-center mt-14">{content}</div>;
+  return <div className="text-center mt-14">
+    {content}
+    <h1>{clicks}</h1>
+    </div>;
 };
 
 export default ClicksPerSecond;

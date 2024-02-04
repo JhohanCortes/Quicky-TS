@@ -8,7 +8,7 @@ interface boardState {
 export const useRankings = create<boardState>((set) => ({
   ranking: [],
   addScore: (value: number) => set((state) => ({
-    ranking: [...state.ranking, value].sort((a, b) => a - b), // Sort in ascending order
+    ranking: [...state.ranking, value].sort((a, b) => b - a).slice(0,20), // Sort in ascending order
     
     })),
     
