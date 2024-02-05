@@ -16,8 +16,9 @@ const Footer = () => {
             </ul>
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span className="block text-sm text-gray-200 sm:text-center dark:text-gray-400 cursor-pointer">Jhohan Cortes <a href="jhohancortes.netlify.app" className="hover:underline"></a></span>
-    </div>
+        <span className="block text-sm text-gray-200 sm:text-center dark:text-gray-400 cursor-pointer">
+            <a href="https://jhohancortes.netlify.app/" target="_blank" className="hover:underline">Jhohan Cortes</a>
+        </span>    </div>
 </footer>
 
 

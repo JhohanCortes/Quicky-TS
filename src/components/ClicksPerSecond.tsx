@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTimer } from "../store/timer";
 import { useRankings } from "../store/rankings";
+import Scoreboard from "./Scoreboard";
 
 const ClicksPerSecond = () => {
   const { time, initialTime, startTime } = useTimer();
@@ -85,7 +86,7 @@ const ClicksPerSecond = () => {
 
   return <div className="text-center mt-14">
     {content}
-    <h1>{clicks}</h1>
+    <Scoreboard/>
     </div>;
 };
 

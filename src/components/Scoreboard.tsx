@@ -13,21 +13,23 @@ const Scoreboard = () => {
   }, [ranking]);
 
   return (
-    <div className="container mx-auto mt-10">
-      <table className="min-w-full bg-white border border-gray-300">
-        <thead>
-          <tr>
-            <th className="py-2 px-4 border-b">Ranking</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredRankings.map((item, index) => (
-            <tr key={index}>
-              <td className="py-2 px-4 border-b">{item}</td>
+    <div className="flex items-center justify-center mb-10">
+        <table className="w-[200px]">
+          <thead>
+            <tr>
+              <th className="py-2 px-4 border-b bg-primary text-white text-center text-sm font-normal">
+                Ranking
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredRankings.map((item, index) => (
+              <tr key={index}>
+                <td className="py-1 px-4 border-b text-center text-sm">{item}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
     </div>
   );
 }
