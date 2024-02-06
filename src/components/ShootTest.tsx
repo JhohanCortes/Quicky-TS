@@ -1,36 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
 import { useTimer } from "../store/timer";
-import { useRankings } from "../store/rankings";
-import Scoreboard from "./Scoreboard";
 
-const ClicksPerSecond = () => {
+const ShootTest = () => {
+    const [clicks, setClicks] = useState(0);
   const { time, initialTime, startTime } = useTimer();
-  const { addScore, ranking } = useRankings();
-
-  const [clicks, setClicks] = useState<number>(0);
-  const [score, setScore] = useState<number>(0);
 
   const handleClick = () => {
     setClicks(clicks + 1);
   };
-
   let content;
-
-  useEffect(() => {
-    if (time === 0) {
-      const calculatedScore = clicks / initialTime;
-      setScore(calculatedScore);
-      addScore(calculatedScore);
-      setClicks(0);
-      console.log(ranking);
-      console.log(calculatedScore);
-    }
-  }, [time, addScore]);
-  
 
   const startTimeHandler = () => {
     startTime();
   };
+
 
   if (time === -1) {
     content = (
@@ -50,7 +34,7 @@ const ClicksPerSecond = () => {
           style={{ userSelect: "none" }}
         >
           {" "}
-          Clicks per second : {score}
+          Clicks per second : {}
         </div>
         <button
           className="bg-primary hover:bg-secondary text-white py-2 px-4 rounded mb-14"
@@ -70,7 +54,6 @@ const ClicksPerSecond = () => {
           handleClick();
         }}
       >
-        {time}
       </div>
     );
   } else {
@@ -84,10 +67,13 @@ const ClicksPerSecond = () => {
     );
   }
 
-  return <div className="text-center mt-14">
-    {content}
-    <Scoreboard/>
-    </div>;
+  return (
+    <div className="text-center mt-14">
+        {content}
+        <div className="w-10 h-10 bg-accent rounded-full"></div>
+
+    </div>
+  );
 };
 
-export default ClicksPerSecond;
+export default ShootTest;

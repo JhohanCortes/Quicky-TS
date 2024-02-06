@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import ClicksPerSecond from './components/ClicksPerSecond';
 import Quests from './components/Quests';
+import ShootTest from './components/ShootTest';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
     <Routes>
       <Route path="" element={<Home/>}/>
       <Route path="/clickspersecond" element={<ClicksPerSecond/>}/>
+      <Route path="/shoottest" element={<ShootTest/>}/>
     </Routes>
     <Quests/>
     <Footer />
