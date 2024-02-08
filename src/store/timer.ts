@@ -5,6 +5,7 @@ interface TimerState {
   initialTime: number;
   startTime: () => void;
   stopTime: () => void;
+  resetTime: () => void;
 }
 
 export const useTimer = create<TimerState>((set) => {
@@ -33,5 +34,9 @@ export const useTimer = create<TimerState>((set) => {
     stopTime: () => {
       clearInterval(intervalId);
     },
+    resetTime: () => {
+      clearInterval(intervalId);
+      set({ time: -1 })
+    }
   };
 });
