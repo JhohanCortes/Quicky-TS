@@ -2,15 +2,17 @@ import { useRankings } from "../store/rankings";
 import { useEffect, useState } from "react";
 
 const Scoreboard = () => {
-  const { ranking } = useRankings();
+  const { actual, rankings } = useRankings();
   const [filteredRankings, setFilteredRankings] = useState<number[]>([]);
 
   useEffect(() => {
-    // Filtrar rankings para obtener solo aquellos con valores entre 0 y 9
-    // Puedes ajustar la lógica del filtro según tus necesidades
-    const filtered = ranking.filter(item => item >= 0 && item <= 9);
-    setFilteredRankings(filtered);
-  }, [ranking]);
+    const filteredRankings = rankings[actual as keyof typeof rankings].filter(item => item >= 0 && item <= 9);
+
+    setFilteredRankings(filteredRankings);g
+  }, [rankings]);
+
+  console.log(rankings[actual as keyof typeof rankings])
+  console.log(actual)
 
   return (
     <div className="flex items-center justify-center mb-10">

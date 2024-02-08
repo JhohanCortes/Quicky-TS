@@ -5,7 +5,7 @@ import Scoreboard from "./Scoreboard";
 
 const ClicksPerSecond = () => {
   const { time, initialTime, startTime } = useTimer();
-  const { addScore, ranking } = useRankings();
+  const { addScore, rankings } = useRankings();
 
   const [clicks, setClicks] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
@@ -20,9 +20,9 @@ const ClicksPerSecond = () => {
     if (time === 0) {
       const calculatedScore = clicks / initialTime;
       setScore(calculatedScore);
-      addScore(calculatedScore);
+      addScore( "clicksPerSecond", calculatedScore );
       setClicks(0);
-      console.log(ranking);
+      console.log(rankings);
       console.log(calculatedScore);
     }
   }, [time, addScore]);

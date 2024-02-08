@@ -2,21 +2,28 @@ import { useEffect, useState } from "react";
 
 import { useTimer } from "../store/timer";
 import { useRankings } from "../store/rankings";
+import Scoreboard from "./Scoreboard";
 
 const ShootTest = () => {
   const [clicks, setClicks] = useState<number>(0);
   const [position, setPosition] = useState({ x: 230, y: 130 });
   const [score, setScore] = useState<number>(0)
 
-  const { time, initialTime, startTime } = useTimer();
-  const {  } = useRankings()
+  const { time, startTime } = useTimer();
+  const { addScore, rankings } = useRankings()
 
   useEffect(() => {
     if(time === 0) {
+      const logScore = clicks
+      setScore(logScore)
+      addScore( "shootTest", logScore)
+      setClicks(0)
+      console.log(rankings.shootTest, clicks, logScore, score)
       
     }
   }, [time])
 
+  if (time === 0) console.log(rankings.shootTest, clicks, score)
 
   const handleClick = () => {
     setClicks(clicks + 1);
@@ -24,7 +31,6 @@ const ShootTest = () => {
     const newX = Math.ceil(Math.random() * 460);
     const newY = Math.ceil(Math.random() * 260);
 
-    console.log(newX, newY);
     setPosition({ x: newX, y: newY });
   };
   let content;
@@ -95,6 +101,7 @@ const ShootTest = () => {
     <div className="text-center mt-14">
       {content}
       {clicks}
+      <Scoreboard/>
     </div>
   );
 };

@@ -1,15 +1,34 @@
 import create from 'zustand';
 
-interface boardState {
-  ranking: number[]; // Especifica el tipo de elementos que contendrá el array
-  addScore: (value: number) => void; // Asegúrate de especificar el tipo de retorno
+interface RankingsState {
+  rankings: {
+    clicksPerSecond: number[];
+    shootTest: number[];
+    // Puedes añadir más rankings aquí si es necesario
+  }
+  addScore: (ranking: keyof RankingsState['rankings'], value: number) => void;
+  actual: string
+  setActual: ( value:string )=>void
 }
 
-export const useRankings = create<boardState>((set) => ({
-  ranking: [],
-  addScore: (value: number) => set((state) => ({
-    ranking: [...state.ranking, value].sort((a, b) => b - a).slice(0,20), // Sort in ascending order
-    
-    })),
-    
+export const useRankings = create<RankingsState>((set) => ({
+  rankings: {
+    clicksPerSecond: [],
+    shootTest: []
+    // Puedes inicializar más rankings aquí si es necesario
+  },
+  addScore: (ranking, value: number) =>
+    set((state) => {
+      const updatedRanking = [...state.rankings[ranking], value].sort((a, b) => b - a).slice(0, 20);
+      return {
+        rankings: {
+          ...state.rankings,
+          [ranking]: updatedRanking
+        }
+      };
+    }),
+    actual: "clicksPerSecond",
+    setActual:(value)=>{
+      set({actual : value})
+    }
 }));
