@@ -23,7 +23,6 @@ const ShootTest = () => {
     }
   }, [time])
 
-  if (time === 0) console.log(rankings.shootTest, clicks, score)
 
   const handleClick = () => {
     setClicks(clicks + 1);
@@ -101,7 +100,7 @@ const ShootTest = () => {
     <div className="text-center mt-14">
       {content}
       {clicks}
-      <Scoreboard/>
+      <Scoreboard actual="shootTest"/>
     </div>
   );
 };

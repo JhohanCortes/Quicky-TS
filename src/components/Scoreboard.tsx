@@ -1,18 +1,23 @@
 import { useRankings } from "../store/rankings";
 import { useEffect, useState } from "react";
 
-const Scoreboard = () => {
-  const { actual, rankings } = useRankings();
+interface Props {
+  actual: string
+}
+
+const Scoreboard: React.FC<Props> = (props) => {
+  const { rankings } = useRankings();
   const [filteredRankings, setFilteredRankings] = useState<number[]>([]);
 
   useEffect(() => {
-    const filteredRankings = rankings[actual as keyof typeof rankings].filter(item => item >= 0 && item <= 9);
+    const { actual } = props;
 
-    setFilteredRankings(filteredRankings);g
+    const filteredRankings = rankings[actual as keyof typeof rankings].filter(item => item);
+
+    setFilteredRankings(filteredRankings);
+    console.log(filteredRankings + "atención")
   }, [rankings]);
 
-  console.log(rankings[actual as keyof typeof rankings])
-  console.log(actual)
 
   return (
     <div className="flex items-center justify-center mb-10">

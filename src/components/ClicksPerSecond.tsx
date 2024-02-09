@@ -22,8 +22,7 @@ const ClicksPerSecond = () => {
       setScore(calculatedScore);
       addScore( "clicksPerSecond", calculatedScore );
       setClicks(0);
-      console.log(rankings);
-      console.log(calculatedScore);
+      console.log(rankings.clicksPerSecond, rankings.shootTest);
     }
   }, [time, addScore]);
   
@@ -86,7 +85,7 @@ const ClicksPerSecond = () => {
 
   return <div className="text-center mt-14">
     {content}
-    <Scoreboard/>
+    <Scoreboard actual="clicksPerSecond"/>
     </div>;
 };
 
