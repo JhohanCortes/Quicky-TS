@@ -9,7 +9,6 @@ const Quests = () => {
 
   const handleClick = ( x: string) => {
     resetTime();
-    setActual(x);
   };
 
   return (
@@ -17,16 +16,26 @@ const Quests = () => {
       <Link
         to="/clickspersecond"
         className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
-        onClick={() => handleClick("clicksPerSecond")}
       >
         Clicks per second
       </Link>
       <Link
         to="/shoottest"
         className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
-        onClick={() => handleClick("shootTest")}
       >
         Shoot test
+      </Link>
+      <Link
+        to="/recenter"
+        className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
+      >
+        Re Center
+      </Link>
+      <Link
+        to="/vanilla"
+        className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
+      >
+       Vanilla
       </Link>
     </div>
   );

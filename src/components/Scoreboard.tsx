@@ -15,7 +15,6 @@ const Scoreboard: React.FC<Props> = (props) => {
     const filteredRankings = rankings[actual as keyof typeof rankings].filter(item => item);
 
     setFilteredRankings(filteredRankings);
-    console.log(filteredRankings + "atención")
   }, [rankings]);
 
 
