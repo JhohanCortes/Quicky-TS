@@ -32,6 +32,12 @@ const Quests = () => {
         Re Center
       </Link>
       <Link
+        to="/holdball"
+        className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
+      >
+        Hold Ball
+      </Link>
+      <Link
         to="/vanilla"
         className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
       >
