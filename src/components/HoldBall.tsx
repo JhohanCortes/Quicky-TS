@@ -29,15 +29,7 @@ const HoldBall = () => {
 
   const mouseOutHandler = () => {
     clearInterval(intervalId!);
-    setIntervalId(null);
-  };
-
-  const handlePause = () => {
-    setPaused(!paused);
-    if (intervalId) {
-      clearInterval(intervalId);
-      setIntervalId(null);
-    }
+    setIntervalId(null)
   };
 
   const movePosition = () => {
@@ -51,8 +43,10 @@ const HoldBall = () => {
     if (!paused) {
       const intervalId = setInterval(movePosition, Math.random() * 2000 + 1000);
       return () => clearInterval(intervalId);
+      console.log(intervalId)
     }
   }, [paused]);
+
 
   useEffect(() => {
     if (time === 0) {
