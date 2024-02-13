@@ -29,7 +29,7 @@ const HoldBall = () => {
 
   const mouseOutHandler = () => {
     clearInterval(intervalId!);
-    setIntervalId(null)
+    setIntervalId(null);
   };
 
   const movePosition = () => {
