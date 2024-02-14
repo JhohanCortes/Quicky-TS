@@ -115,6 +115,7 @@ const ReCenter = () => {
 
   return (
     <div className="text-center">
+      <h1>Re-center ball</h1>
       {content}
       <Scoreboard actual="reCenter"/>
     </div>

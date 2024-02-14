@@ -119,6 +119,7 @@ const HoldBall = () => {
 
   return (
     <div className="text-center">
+      <h1>Hold Ball</h1>
       {content}
       <Scoreboard actual="holdBall" />
     </div>

@@ -78,7 +78,10 @@ const VanillaTest = () => {
     );
   }
 
-  return <div className="text-center">{content}</div>;
+  return <div className="text-center">
+    <h1>Vanilla</h1>
+    {content}
+    </div>;
 };
 
 export default VanillaTest;

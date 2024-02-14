@@ -98,8 +98,8 @@ const ShootTest = () => {
 
   return (
     <div className="text-center mt-14">
+      <h1>Shoot Test</h1>
       {content}
-      {clicks}
       <Scoreboard actual="shootTest"/>
     </div>
   );
