@@ -47,4 +47,4 @@ const Quests = () => {
   );
 };
 
-export default Quests;
+export default Quests
