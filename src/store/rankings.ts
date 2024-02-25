@@ -6,6 +6,7 @@ interface RankingsState {
     shootTest: number[];
     reCenter: number[];
     holdBall: number[];
+    holdingBall: number[];
     // Puedes añadir más rankings aquí si es necesario
   }
   addScore: (ranking: keyof RankingsState['rankings'], value: number) => void;
@@ -19,6 +20,7 @@ export const useRankings = create<RankingsState>((set) => ({
     shootTest: [],
     reCenter: [],
     holdBall: [],
+    holdingBall: [],
     // Puedes inicializar más rankings aquí si es necesario
   },
   addScore: (ranking, value: number) =>

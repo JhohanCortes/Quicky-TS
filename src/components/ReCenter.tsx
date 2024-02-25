@@ -44,8 +44,8 @@ const ReCenter = () => {
   if (time === -1) {
     content = (
       <div
-        className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-[500px] h-[300px] mx-auto rounded-lg shadow-md mt-14 mb-14 cursor-pointer"
-        onClick={startTimeHandler}
+      className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-[500px] h-[300px] mx-auto rounded-lg shadow-md mt-14 mb-14"
+      onClick={startTimeHandler}
       >
         Start
       </div>
@@ -115,7 +115,7 @@ const ReCenter = () => {
 
   return (
     <div className="text-center">
-      <h1>Re-center ball</h1>
+      <h1 className="text-4xl pt-4 font-bold text-primary">Re-center ball</h1>
       {content}
       <Scoreboard actual="reCenter"/>
     </div>

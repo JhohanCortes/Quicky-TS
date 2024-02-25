@@ -79,7 +79,7 @@ const VanillaTest = () => {
   }
 
   return <div className="text-center">
-    <h1>Vanilla</h1>
+    <h1 className="text-4xl pt-4 font-bold text-primary">Vanilla</h1>
     {content}
     </div>;
 };

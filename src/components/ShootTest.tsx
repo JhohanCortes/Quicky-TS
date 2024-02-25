@@ -98,7 +98,7 @@ const ShootTest = () => {
 
   return (
     <div className="text-center mt-14">
-      <h1>Shoot Test</h1>
+      <h1 className="text-4xl pt-4 font-bold text-primary">Shoot Test</h1>
       {content}
       <Scoreboard actual="shootTest"/>
     </div>

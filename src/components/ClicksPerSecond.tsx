@@ -84,7 +84,7 @@ const ClicksPerSecond = () => {
   }
 
   return <div className="text-center mt-14">
-    <h1>Click per second</h1>
+    <h1 className="text-4xl pt-4 font-bold text-primary">Click per second</h1>
     {content}
     <Scoreboard actual="clicksPerSecond"/>
     </div>;

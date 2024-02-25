@@ -4,11 +4,11 @@ import { useRankings } from "../store/rankings";
 import Scoreboard from "./Scoreboard";
 
 const HoldBall = () => {
-  const [score, setScore  ] = useState<number>(0);
+  const [score, setScore] = useState<number>(0);
   const [position, setPosition] = useState({ x: 230, y: 130 });
   const [holdScore, setHoldScore] = useState<number>(0);
   const [paused, setPaused] = useState<boolean>(false);
-  const [total, setTotal] = useState<number>(0)
+  const [total, setTotal] = useState<number>(0);
 
   const { startTime, time } = useTimer();
   const { addScore, rankings } = useRankings();
@@ -43,10 +43,9 @@ const HoldBall = () => {
     if (!paused) {
       const intervalId = setInterval(movePosition, Math.random() * 2000 + 1000);
       return () => clearInterval(intervalId);
-      console.log(intervalId)
+      console.log(intervalId);
     }
   }, [paused]);
-
 
   useEffect(() => {
     if (time === 0) {
@@ -56,10 +55,9 @@ const HoldBall = () => {
       setHoldScore(0);
       clearInterval(intervalId!);
       setIntervalId(null);
-      console.log("ejecutao")
+      console.log("ejecutao");
     }
   }, [time, addScore]);
-
 
   let content;
 
@@ -100,12 +98,14 @@ const HoldBall = () => {
           style={{
             marginTop: `${position.y}px`,
             marginLeft: `${position.x}px`,
+            transition: "all 1s ease-in-out" // Transición suave
           }}
           onMouseOver={mouseOverHandler}
           onMouseOut={mouseOutHandler}
         ></div>
       </div>
     );
+  
   } else {
     content = (
       <div
@@ -119,7 +119,7 @@ const HoldBall = () => {
 
   return (
     <div className="text-center">
-      <h1>Hold Ball</h1>
+      <h1 className="text-4xl pt-4 font-bold text-primary">Hold Ball</h1>
       {content}
       <Scoreboard actual="holdBall" />
     </div>

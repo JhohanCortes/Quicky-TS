@@ -8,6 +8,7 @@ import ShootTest from './components/ShootTest';
 import ReCenter from './components/ReCenter';
 import VanillaTest from './components/VanillaTest';
 import HoldBall from './components/HoldBall';
+import HoldingBall from './components/HoldingBall';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/recenter" element={<ReCenter/>}/>
       <Route path="/vanilla" element={<VanillaTest/>}/>
       <Route path="/holdball" element={<HoldBall/>}/>
+      <Route path="/holdingball" element={<HoldingBall/>}/>
     </Routes>
     <Quests/>
     <Footer />
