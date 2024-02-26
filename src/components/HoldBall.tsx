@@ -8,56 +8,51 @@ const HoldBall = () => {
   const [position, setPosition] = useState({ x: 230, y: 130 });
   const [holdScore, setHoldScore] = useState<number>(0);
   const [paused, setPaused] = useState<boolean>(false);
-  const [total, setTotal] = useState<number>(0);
+  const [calculatedScore, setCalculatedScore] = useState<number>(0);
 
   const { startTime, time } = useTimer();
-  const { addScore, rankings } = useRankings();
+  const { addScore } = useRankings();
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
 
   const startTimeHandler = () => {
     startTime();
   };
 
-  const mouseOverHandler = () => {
-    if (!paused) {
+  const mouseHoverHandler = (hovering: boolean) => {
+    if (!hovering && intervalId) {
+      clearInterval(intervalId); // Limpia el intervalo si hovering es falso
+      setIntervalId(null);
+    } else if (hovering && !intervalId) {
       const id = setInterval(() => {
         setHoldScore((score) => score + 1);
       }, 100);
-      setIntervalId(id);
+      setIntervalId(id); // Establece el intervalo si hovering es verdadero
     }
-  };
-
-  const mouseOutHandler = () => {
-    clearInterval(intervalId!);
-    setIntervalId(null);
   };
 
   const movePosition = () => {
     const newX = Math.ceil(Math.random() * 460);
     const newY = Math.ceil(Math.random() * 260);
-
     setPosition({ x: newX, y: newY });
   };
 
   useEffect(() => {
-    if (!paused) {
-      const intervalId = setInterval(movePosition, Math.random() * 2000 + 1000);
-      return () => clearInterval(intervalId);
-      console.log(intervalId);
-    }
+    const intervalId = setInterval(movePosition, Math.random() * 2000 + 1000);
+    return () => clearInterval(intervalId);
   }, [paused]);
 
   useEffect(() => {
+    setCalculatedScore(holdScore);
     if (time === 0) {
-      const calculatedScore = holdScore;
-      setScore(calculatedScore);
-      addScore("holdBall", calculatedScore);
+      mouseHoverHandler(false);
+      setScore(holdScore); // Usar holdScore en lugar de calculatedScore aquí
+      addScore("holdBall", holdScore); // Usar holdScore en lugar de calculatedScore aquí
       setHoldScore(0);
       clearInterval(intervalId!);
       setIntervalId(null);
-      console.log("ejecutao");
     }
   }, [time, addScore]);
+
 
   let content;
 
@@ -77,7 +72,7 @@ const HoldBall = () => {
           className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-[500px] h-[300px] mx-auto rounded-lg shadow-md mt-14 mb-14"
           style={{ userSelect: "none" }}
         >
-          score : {total}
+          score : {calculatedScore}
         </div>
         <button
           className="bg-primary hover:bg-secondary text-white py-2 px-4 rounded mb-14"
@@ -98,14 +93,13 @@ const HoldBall = () => {
           style={{
             marginTop: `${position.y}px`,
             marginLeft: `${position.x}px`,
-            transition: "all 1s ease-in-out" // Transición suave
+            transition: "all 1s ease-in-out", // Smooth transition
           }}
-          onMouseOver={mouseOverHandler}
-          onMouseOut={mouseOutHandler}
+          onMouseOver={() => mouseHoverHandler(true)}
+          onMouseOut={() => mouseHoverHandler(false)}
         ></div>
       </div>
     );
-  
   } else {
     content = (
       <div

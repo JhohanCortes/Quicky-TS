@@ -19,17 +19,17 @@ export const useRankings = create<RankingsState>((set) => ({
     clicksPerSecond: [],
     shootTest: [],
     reCenter: [],
-    holdBall: [],
+    holdBall: [1, 55, 100, 50, 70],
     holdingBall: [],
     // Puedes inicializar más rankings aquí si es necesario
   },
   addScore: (ranking, value: number) =>
     set((state) => {
-      const updatedRanking = [...state.rankings[ranking], value].sort((a, b) => b - a).slice(0, 20);
+      const updatedRanking = [...state.rankings[ranking], value];
       return {
         rankings: {
           ...state.rankings,
-          [ranking]: updatedRanking
+          [ranking]: updatedRanking.slice(0, 20)
         }
       };
     }),
