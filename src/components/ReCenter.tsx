@@ -58,7 +58,7 @@ const ReCenter = () => {
           style={{ userSelect: "none" }}
         >
           {" "}
-          Score : {score}
+          Score: {score}
         </div>
         <button
           className="bg-primary hover:bg-secondary text-white py-2 px-4 rounded mb-14"

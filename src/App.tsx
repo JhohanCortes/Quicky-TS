@@ -6,9 +6,9 @@ import ClicksPerSecond from "./components/ClicksPerSecond";
 import Quests from "./components/Quests";
 import ShootTest from "./components/ShootTest";
 import ReCenter from "./components/ReCenter";
-import VanillaTest from "./components/VanillaTest";
 import HoldBall from "./components/HoldBall";
-import HoldingBall from "./components/HoldingBall";
+import HorizontalHold from "./components/HorizontalHold";
+import Test from "./components/Test";
 
 function App() {
   return (
@@ -20,9 +20,9 @@ function App() {
         <Route path="/clickspersecond" element={<ClicksPerSecond />} />
         <Route path="/shoottest" element={<ShootTest />} />
         <Route path="/recenter" element={<ReCenter />} />
-        <Route path="/vanilla" element={<VanillaTest />} />
         <Route path="/holdball" element={<HoldBall />} />
-        <Route path="/holdingball" element={<HoldingBall />} />
+        <Route path="/horizontaltest" element={<HorizontalHold />} />
+        <Route path="/test" element={<Test />} />
       </Routes>
       <Quests />
       <Footer />

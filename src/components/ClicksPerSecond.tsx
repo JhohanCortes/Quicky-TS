@@ -49,7 +49,7 @@ const ClicksPerSecond = () => {
           style={{ userSelect: "none" }}
         >
           {" "}
-          Clicks per second : {score}
+          Clicks per second: {score}
         </div>
         <button
           className="bg-primary hover:bg-secondary text-white py-2 px-4 rounded mb-14"
