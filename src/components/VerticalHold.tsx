@@ -9,7 +9,7 @@ const VerticalHold = () => {
 
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
   const [holdScore, setHoldScore] = useState<number>(0);
-  const [position, setPosition] = useState({ x: 0 });
+  const [position, setPosition] = useState<{ x:number }>({ x: 0 });
   const [calculatedScore, setCalculatedScore] = useState<number>(0);
 
   useEffect(() => {
