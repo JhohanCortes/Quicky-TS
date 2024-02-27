@@ -40,8 +40,14 @@ const Quests = () => {
       <Link
         to="/horizontaltest"
         className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
-      >
+        >
         Horizontal Holding
+      </Link>
+      <Link
+        to="/verticaltest"
+        className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
+      >
+        Vertical Holding
       </Link>
     </div>
   );

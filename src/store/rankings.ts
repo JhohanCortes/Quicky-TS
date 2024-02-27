@@ -8,7 +8,7 @@ interface RankingsState {
     holdBall: number[];
     holdingBall: number[];
     horizontalHold: number[];
-    // Puedes añadir más rankings aquí si es necesario
+    verticalHold: number[];
   }
   addScore: (ranking: keyof RankingsState['rankings'], value: number) => void;
   actual: string | boolean
@@ -20,10 +20,10 @@ export const useRankings = create<RankingsState>((set) => ({
     clicksPerSecond: [],
     shootTest: [],
     reCenter: [],
-    holdBall: [1, 55, 100, 50, 70],
+    holdBall: [],
     holdingBall: [],
     horizontalHold: [],
-    // Puedes inicializar más rankings aquí si es necesario
+    verticalHold: [],
   },
   addScore: (ranking, value: number) =>
     set((state) => {

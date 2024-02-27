@@ -37,7 +37,7 @@
     };
 
     useEffect(() => {
-      const intervalId = setInterval(movePosition, Math.random() * 2000 + 1000);
+      const intervalId = setInterval(movePosition, Math.random() * 2000 + 900);
       return () => clearInterval(intervalId);
     }, [paused]);
 

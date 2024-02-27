@@ -74,7 +74,7 @@ const ShootTest = () => {
         style={{ userSelect: "none" }}
       >
         <div
-          className="w-10 h-10 bg-accent rounded-full"
+          className="w-5 h-5 bg-accent rounded-full"
           style={{
             marginTop: `${position.y}px`,
             marginLeft: `${position.x}px`,

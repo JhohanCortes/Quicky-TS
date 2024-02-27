@@ -8,6 +8,7 @@ import ShootTest from "./components/ShootTest";
 import ReCenter from "./components/ReCenter";
 import HoldBall from "./components/HoldBall";
 import HorizontalHold from "./components/HorizontalHold";
+import VerticalHold from "./components/VerticalHold";
 import Test from "./components/Test";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/recenter" element={<ReCenter />} />
         <Route path="/holdball" element={<HoldBall />} />
         <Route path="/horizontaltest" element={<HorizontalHold />} />
+        <Route path="/verticaltest" element={<VerticalHold />} />
         <Route path="/test" element={<Test />} />
       </Routes>
       <Quests />

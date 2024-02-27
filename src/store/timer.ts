@@ -15,19 +15,19 @@ export const useTimer = create<TimerState>((set) => {
     time: -1,
     initialTime: 10,
     startTime: () => {
-      set({ time: 13 });
+      set({ time: 10 });
 
-      intervalId = setInterval(() => {
-        set((state) => {
-          const newTime = Math.max(-1, state.time - 1);
+      // intervalId = setInterval(() => {
+      //   set((state) => {
+      //     const newTime = Math.max(-1, state.time - 1);
 
-          if (newTime === 0) {
-            state.stopTime();
-          }
+      //     if (newTime === 0) {
+      //       state.stopTime();
+      //     }
 
-          return { time: newTime };
-        });
-      }, 1000);
+      //     return { time: newTime };
+      //   });
+      // }, 1000);
     },
     stopTime: () => {
       clearInterval(intervalId);
