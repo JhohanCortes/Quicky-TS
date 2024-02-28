@@ -10,6 +10,7 @@ import HoldBall from "./components/HoldBall";
 import HorizontalHold from "./components/HorizontalHold";
 import VerticalHold from "./components/VerticalHold";
 import Test from "./components/Test";
+import ReactionTimeTest from "./components/ReactionTimeTest";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/holdball" element={<HoldBall />} />
         <Route path="/horizontaltest" element={<HorizontalHold />} />
         <Route path="/verticaltest" element={<VerticalHold />} />
+        <Route path="/reactiontest" element={<ReactionTimeTest />} />
         <Route path="/test" element={<Test />} />
       </Routes>
       <Quests />
