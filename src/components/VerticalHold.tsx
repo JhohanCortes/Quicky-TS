@@ -56,7 +56,7 @@ const VerticalHold = () => {
   if (time === -1) {
     content = (
       <div
-        className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-[500px] h-[300px] mx-auto rounded-lg shadow-md mt-14 mb-14"
+        className="flex items-center justify-center text-[30px] text-white font-semibold bg-tertiary w-[500px] h-[300px] mx-auto rounded-lg shadow-md mt-14 mb-14 animate-fade animate-once animate-duration-500"
         style={{ userSelect: "none" }}
         onClick={startTimeHandler}
       >
