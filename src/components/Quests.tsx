@@ -1,62 +1,33 @@
 import { Link } from "react-router-dom";
 
-import { useTimer } from "../store/timer";
-import { useRankings } from "../store/rankings";
-
 const Quests = () => {
-  const { resetTime } = useTimer();
-  const { setActual } = useRankings();
-
-  const handleClick = ( x: string) => {
-    resetTime();
-  };
-
   return (
-    <div className="text-center mt-[50px] mb-[75px]">
-      <Link
-        to="/clickspersecond"
-        className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
-      >
-        Clicks per second
-      </Link>
-      <Link
-        to="/shoottest"
-        className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
-      >
-        Shoot test
-      </Link>
-      <Link
-        to="/recenter"
-        className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
-      >
-        Re Center
-      </Link>
-      <Link
-        to="/holdball"
-        className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
-      >
-        Hold Ball
-      </Link>
-      <Link
-        to="/horizontaltest"
-        className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
-        >
-        Horizontal Holding
-      </Link>
-      <Link
-        to="/verticaltest"
-        className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
-      >
-        Vertical Holding
-      </Link>
-      <Link
-        to="/reactiontest"
-        className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2"
-      >
-        Reaction test
-      </Link>
+    <div className="text-center mt-10 md:mt-20 lg:mt-40 mb-10 md:mb-20 lg:mb-40">
+      <div className="flex flex-wrap justify-center">
+        <Link to="/clickspersecond" className="buttons"> {/* Utiliza la clase personalizada aquí */}
+          Clicks per second
+        </Link>
+        <Link to="/shoottest" className="buttons"> {/* Utiliza la misma clase personalizada aquí */}
+          Shoot test
+        </Link>
+        <Link to="/recenter" className="buttons"> {/* Utiliza la misma clase personalizada aquí */}
+          Re Center
+        </Link>
+        <Link to="/holdball" className="buttons"> {/* Utiliza la misma clase personalizada aquí */}
+          Hold Ball
+        </Link>
+        <Link to="/horizontaltest" className="buttons"> {/* Utiliza la misma clase personalizada aquí */}
+          Horizontal Holding
+        </Link>
+        <Link to="/verticaltest" className="buttons"> {/* Utiliza la misma clase personalizada aquí */}
+          Vertical Holding
+        </Link>
+        <Link to="/reactiontest" className="buttons"> {/* Utiliza la misma clase personalizada aquí */}
+          Reaction test
+        </Link>
+      </div>
     </div>
   );
 };
 
-export default Quests
+export default Quests;
